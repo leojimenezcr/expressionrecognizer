@@ -14,8 +14,8 @@ while True:
     ret, imgframe = capture.read()
 
     # 2. imgframe -> facerecoginition -> return emotion label
-    # 3. imgframe -> signrecogintion -> return sing label
-    # 4. emotion label, sing label -> postprocessing -> return expression
+    # 3. imgframe -> signrecogintion -> return sign label
+    # 4. emotion label, sign label -> postprocessing -> return expression
 
     # Wait for a 'q' key
     cv2.imshow("Capture (key q for quit): ", imgframe)
