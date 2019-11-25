@@ -6,7 +6,7 @@ import facerecognition
 import signrecognition
 import postprocessing
 
-# capture a file (path) or webcam (id 0,1,...)
+# Capture a file (path) or webcam (id 0,1,...)
 capture = cv2.VideoCapture(0)
 
 while True:
