@@ -25,7 +25,7 @@ compactness, labels, (centers) = cv2.kmeans(pixel_values, k, None, criteria, 10,
 print(labels)
 print(centers.shape)
 
-# The next part sshouul be commented 
+# The next part should be commented 
 # convert back to 8 bit values
 centers = np.uint8(centers)
 
