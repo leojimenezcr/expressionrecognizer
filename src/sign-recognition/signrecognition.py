@@ -8,7 +8,7 @@ import os
 import glob
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-label_array = ["0","1", "2", "3", "4", "5", "a","e", "i", "o", "u"]
+label_array = ["1", "2", "3", "4", "5", "a", "e", "i", "o", "u"]
 label_to_index = dict((name, index) for index,name in enumerate(label_array))
 
 def getPic(img_path):
