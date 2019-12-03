@@ -2,7 +2,7 @@
 
 import cv2
 
-import facerecognition
+import facerecognition.facerecognition
 import signrecognition
 import postprocessing
 
