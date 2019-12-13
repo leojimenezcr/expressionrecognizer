@@ -20,8 +20,8 @@ Se desea agregar nuevas emociones para que el análisis sea más específico y p
         
 Se espera que en un futuro se inviertan recursos económicos y de tiempo en la generación de un conjunto de datos lo suficientemente grande de señas en LESCO que permita realizar trabajos similares al aquí descrito.
 
-## How to
-En el directorio *resources*, se encuentran los archivos donde se describe primero la estructura de directorios deseada para correr exitosamente el proyecto y uno con los enlaces para descargar los conjuntos de datos utilizados para replicar el trabajo realizado para nuestra investigación.
+## Replicación del rabajo realizado
+En el directorio *resources*, se encuentran los archivos donde se describe primero la estructura de directorios deseada para correr exitosamente el proyecto y uno con los enlaces para descargar los conjuntos de datos utilizados para nuestra investigación. Esto no restringe de ningún modo la utilización de otros datos.
 
 ## Agradecimientos
 Dr.rer.nat. Alvaro de la Osa, profesor que dirigió la investigación. 
