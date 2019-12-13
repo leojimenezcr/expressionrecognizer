@@ -10,7 +10,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 from preprocessing.kmeans_segmentation import get_image_segmented_image
 
-label_array = ["1", "2", "3", "4", "5", "a", "e", "i", "o", "u"]
+label_array = ["anger", "contempt", "disgust", "fear", "happy", "sadness", "surprise"]
 label_to_index = dict((name, index) for index,name in enumerate(label_array))
 
 dimension = 100
@@ -24,31 +24,33 @@ def getPic(img_path):
     print('ERROR on get pic:', img_path)
 
 def get_label(img_path):
-  return Path(img_path).absolute().name[0:1]
+  return img_path.split('/')[3]
 
 def get_ds(data_path):
-  img_paths = list()
+  img_names = list()
 
   for label in label_array:
-    for img_path in os.listdir(data_path + label):
-      img_paths.append(img_path)
+    for img_name in os.listdir(data_path + label):
+      img_names.append(label + "/" + img_name)
 
-    images = np.zeros((len(img_paths),dimension,dimension,3))
-    labels = np.zeros(len(img_paths))
+    images = np.zeros((len(img_names),dimension,dimension,3))
+    labels = np.zeros(len(img_names))
 
     # resize the images, get the encoded labels
-    for i, img_path in enumerate(img_paths):
-      images[i] = getPic(data_path + img_path[:1] + '/' + img_path)
-      labels[i] = label_to_index[get_label(data_path + label + '/' + img_path)]
+    for i, img_name in enumerate(img_names):
+      images[i] = getPic(data_path + img_name)
+      labels[i] = label_to_index[get_label(data_path + img_name)]
 
   return images,labels
 
-def run_the_signrecognition_net():
+def run_the_facerecognition_net():
+  errors = 0
+
   model = tf.keras.Sequential([
     tf.keras.layers.Input(shape=(dimension,dimension,3)),
     tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(128, activation=tf.nn.relu),
-    tf.keras.layers.Dense(10, activation=tf.nn.softmax)
+    tf.keras.layers.Dense(7, activation=tf.nn.softmax)
   ])
 
   model.compile(
@@ -57,9 +59,9 @@ def run_the_signrecognition_net():
     metrics=['accuracy']
   )
 
-  train_X, train_y = get_ds("signrecognition/dataset/train/")
+  train_X, train_y = get_ds("facerecognition/dataset/train/")
 
-  val_X, val_y = get_ds("signrecognition/dataset/test/")
+  val_X, val_y = get_ds("facerecognition/dataset/test/")
 
   model.fit(train_X, train_y, validation_data=(val_X, val_y))
 
