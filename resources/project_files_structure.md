@@ -4,7 +4,6 @@ With data directories
 
 .
 ├── README.md
-
 ├── resources
 │   ├── project-article.pdf
 │   └── sources.md
