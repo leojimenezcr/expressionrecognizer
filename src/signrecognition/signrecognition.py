@@ -44,7 +44,6 @@ def get_ds(data_path):
   return images,labels
 
 def run_the_net():
-  print('# Model Architecture')
   model = tf.keras.Sequential([
     tf.keras.layers.Input(shape=(dimension,dimension,3)),
     tf.keras.layers.Flatten(),
